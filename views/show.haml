@@ -5,6 +5,6 @@
     = @snippet.title
   #content.sbody
     :preserve
-      #{@snippet.formatted_body}
+      #{@snippet.format_body('ruby')}
   .sdate== Created on #{@snippet.created_at.strftime("%B %d, %Y at %I:%M %p")}
   %br/
