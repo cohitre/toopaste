@@ -5,8 +5,13 @@ require 'dm-core'
 require 'dm-validations'
 require 'dm-timestamps'
 require 'syntaxi'
+require 'haml'
+require 'sass'
+
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/toopaste.sqlite3")
+
+set :haml, {:format => :html5}
 
 class Snippet
   include DataMapper::Resource
@@ -36,9 +41,14 @@ end
 DataMapper.auto_upgrade!
 #File.open('toopaste.pid', 'w') { |f| f.write(Process.pid) }
 
+get '/application.css' do
+  headers 'Content-Type' => 'text/css'
+  sass :application
+end
+
 # new
 get '/' do
-  erb :new
+  haml :new
 end
 
 # create
@@ -56,7 +66,7 @@ end
 get '/:id' do
   @snippet = Snippet.get(params[:id])
   if @snippet
-    erb :show
+    haml :show
   else
     redirect '/'
   end

@@ -1,0 +1,8 @@
+.snippet
+  %h1= @snippet.title
+  #content.sbody
+    :preserve
+      #{@snippet.formatted_body}
+  .sdate== Created on #{@snippet.created_at.strftime("%B %d, %Y at %I:%M %p")}
+  %br/
+  %a{:href=>'/'} Create new paste!

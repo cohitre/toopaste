@@ -1,0 +1,6 @@
+!!!
+%html
+  %head
+    %title= @title || 'Toopaste!'
+    %link{:href => '/application.css', :rel => 'stylesheet', :type => 'text/css', :media => 'screen'}
+  %body= yield
