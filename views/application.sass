@@ -1,23 +1,24 @@
+!text_color = #888
 body
-  background-color: #eee
+  background-color: #222
   font-family: "Trebuchet MS", verdana, tahoma, arial, sans-serif
-
+  color = !text_color
+  line-height: 1.5em
+  a
+    color = !text_color
+  
 .snippet
-  margin: 5px
+  margin: 50px
 
   textarea, .sbody
-    border: 2px dotted #eee
     padding: 5px
-    width: 700px
+    width: 100%
     color: #fff
     background-color: #333
-
-  textarea
-    padding: 20px
+    border-width: 0px
 
   input, .sdate
     margin-top: 5px
-
 
 #content
   .syntax_ruby
@@ -80,10 +81,6 @@ body
 
   .syntax
     background-color: #333
-    padding: 2px
-    margin: 5px
-    margin-left: 1em
-    margin-bottom: 1em
 
     .line_number
       text-align: right
